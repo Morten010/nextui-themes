@@ -1,6 +1,6 @@
 import React from "react";
 import {Button} from "@nextui-org/react";
-import { BiCamera, BiUser } from "react-icons/bi";
+import { BiCamera, BiHeart, BiUser } from "react-icons/bi";
 
 export default function Buttons() {
   return (
@@ -83,6 +83,16 @@ export default function Buttons() {
             </Button>    
             <Button color="danger" variant="bordered" startContent={<BiUser/>}>
                 Delete user
+            </Button>
+            <Button isIconOnly color="danger" aria-label="Like">
+                <BiHeart 
+                className="w-6 h-6"
+                />
+            </Button>    
+            <Button isIconOnly color="warning" variant="faded" aria-label="Take a photo">
+                <BiCamera 
+                className="w-6 h-6"
+                />
             </Button>
         </div>
     </div>

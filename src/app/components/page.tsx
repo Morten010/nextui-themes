@@ -1,4 +1,5 @@
 import Buttons from '@/components/ui/Buttons'
+import ProductCards from '@/components/ui/ProductCards'
 import { FC } from 'react'
 
 interface pageProps {
@@ -23,6 +24,7 @@ const page: FC<pageProps> = ({}) => {
         <Buttons 
         
         />
+        <ProductCards />
     </>
   )
 }
