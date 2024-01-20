@@ -4,7 +4,7 @@ import {Card, CardHeader, CardBody, CardFooter, Image, Button} from "@nextui-org
 export default function AppleImageGrid() {
   return (
     <div 
-    className="max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8 mx-auto my-4"
+    className="gap-2 grid grid-cols-12 grid-rows-2 my-4"
     >
     <Card className="col-span-12 sm:col-span-4 h-[300px]">
       <CardHeader className="absolute z-10 top-1 flex-col !items-start">

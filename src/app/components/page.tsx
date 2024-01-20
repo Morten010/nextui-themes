@@ -1,5 +1,6 @@
 import AppleImageGrid from '@/components/ui/AppleImageGrid'
 import Buttons from '@/components/ui/Buttons'
+import Inputs from '@/components/ui/Inputs'
 import ProductCards from '@/components/ui/ProductCards'
 import { FC } from 'react'
 
@@ -22,12 +23,10 @@ const page: FC<pageProps> = ({}) => {
                 See how all the components looks with the theme.
             </p>
         </div>
-        <Buttons 
-        
-        />
+        <Buttons />
         <ProductCards />
-
         <AppleImageGrid />
+        <Inputs />
     </>
   )
 }
