@@ -25,7 +25,7 @@ export default function Inputs() {
               <Input
                 key={color}
                 type="email"
-                color={color}
+                color={color as "default" | "primary" | "secondary" | "success" | "warning" | "danger" | undefined}
                 label="Email"
                 placeholder="Enter your email"
                 defaultValue="junior@nextui.org"

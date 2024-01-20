@@ -19,7 +19,7 @@ export default function NavBar() {
   ];
 
   return (
-    <Navbar disableAnimation isBordered>
+    <Navbar isBordered>
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle />
       </NavbarContent>
@@ -54,7 +54,9 @@ export default function NavBar() {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarMenu>
+      <NavbarMenu
+      
+      >
         {menuItems.map((item, index) => (
           <NavbarMenuItem 
           key={`${item}-${index}`}
