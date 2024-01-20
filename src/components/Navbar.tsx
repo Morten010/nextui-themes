@@ -49,9 +49,6 @@ export default function NavBar() {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
         <NavbarItem>
           <ColorsButton />
         </NavbarItem>

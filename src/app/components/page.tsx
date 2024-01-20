@@ -1,3 +1,4 @@
+import AppleImageGrid from '@/components/ui/AppleImageGrid'
 import Buttons from '@/components/ui/Buttons'
 import ProductCards from '@/components/ui/ProductCards'
 import { FC } from 'react'
@@ -25,6 +26,8 @@ const page: FC<pageProps> = ({}) => {
         
         />
         <ProductCards />
+
+        <AppleImageGrid />
     </>
   )
 }
