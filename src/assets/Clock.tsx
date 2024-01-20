@@ -1,0 +1,96 @@
+"use client"
+import { colors } from '@/constants'
+import { useTheme } from 'next-themes'
+import { FC, SVGProps } from 'react'
+
+interface ClockProps extends SVGProps<SVGSVGElement> {
+}
+
+const Clock: FC<ClockProps> = ({...props}) => {
+    const {themes, theme, } = useTheme()
+    console.log(themes, theme);
+    
+    const color = colors.filter(c => c.name === theme).map(c => c.color)[0]
+    
+    console.log(color);
+    
+  return (
+    <svg 
+    width="192" 
+    height="199" 
+    viewBox="0 0 192 199" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+    >
+        <g
+        className='hover:scale-[130%]'
+        >
+            <g filter="url(#filter0_f_1_140)">
+            <path d="M110.926 105.482C119.276 105.482 126.044 98.7127 126.044 90.363C126.044 82.0133 119.276 75.2445 110.926 75.2445C102.576 75.2445 95.8074 82.0133 95.8074 90.363C95.8074 98.7127 102.576 105.482 110.926 105.482Z" fill="url(#paint0_linear_1_140)"/>
+            <path d="M70.1185 105.482C78.4682 105.482 85.237 98.7128 85.237 90.3631C85.237 82.0133 78.4682 75.2446 70.1185 75.2446C61.7688 75.2446 55 82.0133 55 90.3631C55 98.7128 61.7688 105.482 70.1185 105.482Z" fill="url(#paint1_linear_1_140)"/>
+            </g>
+            <g filter="url(#filter1_f_1_140)">
+            <path d="M92.7457 90.9278C92.7457 89.6801 91.7342 88.6686 90.4865 88.6686C89.2388 88.6686 88.2274 89.6801 88.2274 90.9278V107.913C88.2274 109.161 89.2388 110.172 90.4865 110.172C91.7342 110.172 92.7457 109.161 92.7457 107.913V90.9278Z" fill="white"/>
+            <path d="M100.986 110.178C102.233 110.178 103.245 109.167 103.245 107.919C103.245 106.671 102.233 105.66 100.986 105.66H90.4925C89.2448 105.66 88.2333 106.671 88.2333 107.919C88.2333 109.167 89.2448 110.178 90.4925 110.178H100.986Z" fill="white"/>
+            </g>
+            <path d="M110.926 105.482C119.276 105.482 126.044 98.7127 126.044 90.363C126.044 82.0133 119.276 75.2445 110.926 75.2445C102.576 75.2445 95.8074 82.0133 95.8074 90.363C95.8074 98.7127 102.576 105.482 110.926 105.482Z" fill="url(#paint2_linear_1_140)"/>
+            <path d="M70.1185 105.482C78.4682 105.482 85.237 98.7128 85.237 90.3631C85.237 82.0133 78.4682 75.2446 70.1185 75.2446C61.7688 75.2446 55 82.0133 55 90.3631C55 98.7128 61.7688 105.482 70.1185 105.482Z" fill="url(#paint3_linear_1_140)"/>
+            <g filter="url(#filter2_b_1_140)">
+            <path d="M110.052 126.48C114.832 121.569 117.781 114.863 117.781 107.467C117.781 92.4082 105.575 80.2028 90.5163 80.2028C75.4572 80.2028 63.2519 92.4082 63.2519 107.467C63.2519 114.863 66.2007 121.569 70.9806 126.48L68.2339 132.229C67.1459 134.506 68.109 137.235 70.386 138.328C72.663 139.416 75.3919 138.453 76.4858 136.176L78.5071 131.949C82.1336 133.733 86.2061 134.738 90.5163 134.738C94.8265 134.738 98.899 133.733 102.525 131.949L104.547 136.176C105.635 138.453 108.364 139.416 110.647 138.328C112.924 137.241 113.887 134.512 112.799 132.229L110.052 126.48Z" fill="url(#paint4_linear_1_140)"/>
+            <path d="M108.849 126.282L109.335 125.782C113.941 121.05 116.781 114.592 116.781 107.467C116.781 92.9604 105.023 81.2028 90.5163 81.2028C76.0095 81.2028 64.2519 92.9604 64.2519 107.467C64.2519 114.592 67.0913 121.05 71.6971 125.782L72.1834 126.282L71.8829 126.911L69.1362 132.66L69.1362 132.66C68.2867 134.438 69.0377 136.57 70.8176 137.426C72.5955 138.276 74.7278 137.524 75.5838 135.745C75.584 135.744 75.5842 135.744 75.5844 135.743L77.6049 131.518L78.0411 130.606L78.9484 131.052C82.4415 132.77 86.3633 133.738 90.5163 133.738C94.6693 133.738 98.5911 132.77 102.084 131.052L102.991 130.606L103.428 131.518L105.449 135.745L105.449 135.745C106.298 137.522 108.429 138.277 110.215 137.426L108.849 126.282ZM108.849 126.282L109.15 126.911M108.849 126.282L109.15 126.911M109.15 126.911L111.896 132.659M109.15 126.911L111.896 132.659M111.896 132.659L111.896 132.66C112.747 134.446 111.993 136.576 110.216 137.426L111.896 132.659Z" stroke="url(#paint5_linear_1_140)" stroke-width="2"/>
+            </g>
+            <path d="M92.7457 90.9278C92.7457 89.6801 91.7343 88.6687 90.4866 88.6687C89.2389 88.6687 88.2274 89.6801 88.2274 90.9278V107.913C88.2274 109.161 89.2389 110.172 90.4866 110.172C91.7343 110.172 92.7457 109.161 92.7457 107.913V90.9278Z" fill="white"/>
+            <path d="M100.986 110.178C102.233 110.178 103.245 109.167 103.245 107.919C103.245 106.671 102.233 105.66 100.986 105.66H90.4925C89.2448 105.66 88.2333 106.671 88.2333 107.919C88.2333 109.167 89.2448 110.178 90.4925 110.178H100.986Z" fill="white"/>
+            <defs>
+            <filter id="filter0_f_1_140" x="17" y="37.2445" width="147.044" height="106.237" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="19" result="effect1_foregroundBlur_1_140"/>
+            </filter>
+            <filter id="filter1_f_1_140" x="0.227356" y="0.66864" width="191.017" height="197.51" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="44" result="effect1_foregroundBlur_1_140"/>
+            </filter>
+            <filter id="filter2_b_1_140" x="45.2519" y="62.2028" width="90.5289" height="94.5733" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feGaussianBlur in="BackgroundImageFix" stdDeviation="9"/>
+            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_140"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_140" result="shape"/>
+            </filter>
+            <linearGradient id="paint0_linear_1_140" x1="57.7466" y1="101.177" x2="129.374" y2="86.6116" gradientUnits="userSpaceOnUse">
+            <stop stop-color={color ? color : "#3B3BF9"}/>
+            <stop offset="0.51" stop-color={color ? color : "#3B3BF9"}/>
+            <stop offset="1" stop-color={color ? color : "#3B3BF9"}/>
+            </linearGradient>
+            <linearGradient id="paint1_linear_1_140" x1="56.1296" y1="93.2108" x2="127.757" y2="78.6452" gradientUnits="userSpaceOnUse">
+            <stop stop-color={color ? color : "#3B3BF9"}/>
+            <stop offset="0.51" stop-color={color ? color : "#3B3BF9"}/>
+            <stop offset="1" stop-color={color ? color : "#3B3BF9"}/>
+            </linearGradient>
+            <linearGradient id="paint2_linear_1_140" x1="57.7466" y1="101.177" x2="129.374" y2="86.6116" gradientUnits="userSpaceOnUse">
+            <stop stop-color={color ? color : "#3B3BF9"}/>
+            <stop offset="0.51" stop-color={color ? color + "51" : "#3B3BF9"}/>
+            <stop offset="1" stop-color={color ? color : "#3B3BF9"}/>
+            </linearGradient>
+            <linearGradient id="paint3_linear_1_140" x1="56.1296" y1="93.2108" x2="127.757" y2="78.6452" gradientUnits="userSpaceOnUse">
+            <stop stop-color={color ? color : "#3B3BF9"}/>
+            <stop offset="0.51" stop-color={color ? color  + "51" : "#3B3BF9"}/>
+            <stop offset="1" stop-color={color ? color : "#3B3BF9"}/>
+            </linearGradient>
+            <linearGradient id="paint4_linear_1_140" x1="66.3303" y1="135.469" x2="118.157" y2="87.221" gradientUnits="userSpaceOnUse">
+            <stop stop-color="white" stop-opacity="0.2"/>
+            <stop offset="1" stop-color="white" stop-opacity="0.49"/>
+            </linearGradient>
+            <linearGradient id="paint5_linear_1_140" x1="67.101" y1="84.8095" x2="116.172" y2="133.655" gradientUnits="userSpaceOnUse">
+            <stop stop-color="white"/>
+            <stop offset="1" stop-color="white" stop-opacity="0"/>
+            </linearGradient>
+            </defs>
+        </g>
+    </svg>
+  )
+}
+
+export default Clock
