@@ -1,6 +1,7 @@
 import React from "react";
 import {Button} from "@nextui-org/react";
 import { BiCamera, BiHeart, BiUser } from "react-icons/bi";
+import ShowBox from "../ShowBox";
 
 export default function Buttons() {
   return (
@@ -10,7 +11,9 @@ export default function Buttons() {
         >
             Buttons
         </h2>
-        <div className="flex flex-wrap gap-4 items-center my-5">
+        <ShowBox 
+        className="flex flex-wrap gap-4 items-center my-5"
+        >
             <Button color="default">
                 Default
             </Button>
@@ -94,7 +97,7 @@ export default function Buttons() {
                 className="w-6 h-6"
                 />
             </Button>
-        </div>
+        </ShowBox>
     </div>
   );
 }

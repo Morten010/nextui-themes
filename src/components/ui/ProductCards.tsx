@@ -1,6 +1,7 @@
 "use client"
 import { Card, CardBody, CardFooter, Image } from '@nextui-org/react'
 import { FC } from 'react'
+import ShowBox from '../ShowBox'
 
 interface ProductCardsProps {
 }
@@ -36,7 +37,7 @@ const ProductCards: FC<ProductCardsProps> = ({}) => {
         >
             Product Cards
         </h2>
-        <div
+        <ShowBox
         className='gap-2 grid grid-cols-2 sm:grid-cols-4'
         >
             {list.map((item, index) => (
@@ -57,7 +58,7 @@ const ProductCards: FC<ProductCardsProps> = ({}) => {
                 </CardFooter>
                 </Card>
             ))}
-        </div>
+        </ShowBox>
     </div>
   )
 }
