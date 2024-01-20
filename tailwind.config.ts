@@ -20,6 +20,7 @@ const config: Config = {
   darkMode: "class",
   plugins: [nextui({
     themes: {
+      light: {},
       purple: {
         colors: {
           background: {
@@ -78,77 +79,15 @@ const config: Config = {
         },
         extend: "dark"
       },
-      oceanBlue: {
-        colors: {
-          background: "#001f3f",
-          foreground: "#ecf0f1",
-          primary: "#3498db",
-          content1: "#2980b9",
-          content2: "#2ecc71",
-          content3: "#16a085",
-          content4: "#16a085",
-          danger: "#e74c3c",
-          default: "#ecf0f1",
-          divider: "#16a085",
-          focus: "#e74c3c",
-          overlay: "#001f3f",
-          secondary: "#2ecc71",
-          success: "#27ae60",
-          warning: "#f39c12",
-        },
-        layout: {
-          borderWidth: {
-            small: "1px",
-            medium: "2px",
-            large: "3px",
-          },
-          radius: {
-            small: "8px",
-            medium: "12px",
-            large: "18px",
-          },
-        },
-      },     
-      forestGreen: {
-        colors: {
-          background: "#2c3e50",
-          foreground: "#ecf0f1",
-          primary: "#2ecc71",
-          content1: "#2c3e50",
-          content2: "#27ae60",
-          content3: "#1abc9c",
-          content4: "#1abc9c",
-          danger: "#e74c3c",
-          default: "#ecf0f1",
-          divider: "#1abc9c",
-          focus: "#e74c3c",
-          overlay: "#2c3e50",
-          secondary: "#27ae60",
-          success: "#16a085",
-          warning: "#f39c12",
-        },
-        layout: {
-          borderWidth: {
-            small: "1px",
-            medium: "2px",
-            large: "3px",
-          },
-          radius: {
-            small: "8px",
-            medium: "12px",
-            large: "18px",
-          },
-        },
-      },
       cherryBlossom: {
         colors: {
           background: "#F9EBEA",
           foreground: "#333",
           primary: "#E74C3C",
-          content1: "#F9EBEA",
-          content2: "#ECF0F1",
-          content3: "#3498DB",
-          content4: "#3498DB",
+          content1: "#e8b4ae",
+          content2: "#e89f97",
+          content3: "#e88a80",
+          content4: "#e88074",
           danger: "#C0392B",
           default: "#ff9393",
           divider: "#3498DB",
@@ -170,38 +109,91 @@ const config: Config = {
             large: "18px",
           },
         },
+        extend: "light"
       },
-      turquoiseDelight: {
+      darkBlue: {
         colors: {
-          background: "#16A085",
-          foreground: "#ECF0F1",
-          primary: "#1ABC9C",
-          content1: "#27AE60",
-          content2: "#3498DB",
-          content3: "#2C3E50",
-          content4: "#2C3E50",
-          danger: "#E74C3C",
-          default: "#ECF0F1",
-          divider: "#2C3E50",
-          focus: "#E74C3C",
-          overlay: "#16A085",
-          secondary: "#3498DB",
-          success: "#2ECC71",
-          warning: "#F39C12",
+          background: {
+            "50": "#1C1F26",
+            "100": "#222933",
+            "200": "#293142",
+            "300": "#2F3951",
+            "400": "#35425F",
+            "500": "#3B4B6E",
+            "600": "#42547D",
+            "700": "#485D8C",
+            "800": "#4E669A",
+            "900": "#546FA9",
+            DEFAULT: "#1C1F26",
+            foreground: "#fafafa"
+          },
+          foreground: {
+            "50": "#ffffff",
+            "100": "#ffffff",
+            "200": "#ffffff",
+            "300": "#ffffff",
+            "400": "#ffffff",
+            "500": "#fafafa",
+            "600": "#eaeaea",
+            "700": "#d4d4d4",
+            "800": "#b7b7b7",
+            "900": "#999999",
+            DEFAULT: "#fafafa"
+          },
+          primary: {
+            "50": "#394989",
+            "100": "#3D4F9A",
+            "200": "#4154AB",
+            "300": "#4659BC",
+            "400": "#4A5FCD",
+            "500": "#4E64DE",
+            "600": "#5369EF",
+            "700": "#576EFF",
+            "800": "#5C73FF",
+            "900": "#6078FF",
+            DEFAULT: "#394989",
+            foreground: "#fafafa"
+          },
+          content1: "#36415B",
+          content2: "#44516F",
+          content3: "#556384",
+          content4: "#667498",
+          danger: "#CC4455",
+          default: {
+            "50": "#F0F1F4",
+            "100": "#D8DAE1",
+            "200": "#C0C3D8",
+            "300": "#A8ABCF",
+            "400": "#9196C6",
+            "500": "#7A81BD",
+            "600": "#6269B4",
+            "700": "#4B52AB",
+            "800": "#333AA2",
+            "900": "#1C2399",
+            DEFAULT: "#7A81BD",
+            foreground: "#36415B"
+          },
+          divider: "#59677E",
+          focus: "#394989",
+          overlay: "#1C1F26",
+          secondary: "#6C839D",
+          success: "#55AA77",
+          warning: "#FFAA55",
         },
         layout: {
           borderWidth: {
             small: "1px",
             medium: "2px",
-            large: "3px",
+            large: "3px"
           },
           radius: {
             small: "8px",
             medium: "12px",
-            large: "18px",
+            large: "18px"
           },
         },
-      }
+        extend: "dark"
+      },
       
     }
   })]

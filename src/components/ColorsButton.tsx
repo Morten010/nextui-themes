@@ -11,7 +11,10 @@ export default function App() {
 
   return (
     <>
-      <Button onPress={onOpen}>
+      <Button 
+      onPress={onOpen}
+      color="primary"
+      >
         Choose Theme
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -24,24 +27,17 @@ export default function App() {
                 className="colorGrid"
                 >
                     {colors?.map((color, index) => (
-                        <div
-                        key={`Pick color ${index}`}
-                        className="w-full"
-                        >
-                            <div
-                            className={`w-full aspect-square rounded mx-auto cursor-pointer hover:outline outline-offset-4 mb-2 ${color.name === theme ? "outline outline-primary" : ""}`}
-                            style={{
-                                backgroundColor: color.color,
-                                outline: "3px solid primary/60"
-                            }}
-                            onClick={() => {
-                                setTheme(color.name)
-                            }}
-                            />
-                            <p>
-                                {color.title}
-                            </p>
-                        </div>
+                      <div
+                      key={`theme-${index}`}
+                      className={`w-full aspect-square rounded mx-auto cursor-pointer hover:outline outline-offset-4 mb-2 ${color.name === theme ? "outline outline-primary" : ""}`}
+                      style={{
+                          backgroundColor: color.color,
+                          outline: "3px solid primary/60"
+                      }}
+                      onClick={() => {
+                          setTheme(color.name)
+                      }}
+                      />    
                     ))}
                 </div>
               </ModalBody>

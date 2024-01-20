@@ -25,7 +25,7 @@ const Hero: FC<HeroProps> = ({}) => {
                 </span> themes
             </h1>
             <p
-            className='mt-1 mb-3 text-foreground-200'
+            className='mt-1 mb-3 text-foreground/60'
             >
                 Create you're own theme or find you're new favorite here. Making websites have never been easier.
             </p>
