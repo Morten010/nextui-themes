@@ -8,3 +8,9 @@
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 20px;
 }
+
+.aboutGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}

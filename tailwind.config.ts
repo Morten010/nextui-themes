@@ -180,6 +180,7 @@ const config: Config = {
             large: "18px"
           },
         },
+        extend: "dark"
       },
       cherryBlossom: {
         colors: {

@@ -28,18 +28,15 @@ export default function NavBar() {
   const isPathName = (path: string) => {
     if(path === "/"){
       if(path === pathname){
-        console.log(path, pathname);
         
         return true
       }else{
-        console.log(path, pathname);
 
         return false
       }
 
     }
     
-    console.log(path, pathname);
     return !!pathname.includes(path)
   }
   
