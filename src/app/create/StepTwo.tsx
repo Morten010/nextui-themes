@@ -64,7 +64,7 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                     ...colors,
                     colors: {
                         ...colors.colors,
-                        default: generatePallete(e.hsv),
+                    default: generatePallete(e.hsv, colors.extend!),
                         
                     }
                 })
@@ -125,14 +125,14 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                         ...colors,
                         colors: {
                             ...colors.colors,
-                            [key]: e.hex,
-                            overlay: generatePallete(e.hsv).DEFAULT
+                            [key]: generatePallete(e.hsv, colors.extend!).DEFAULT,
+                            overlay: generatePallete(e.hsv, colors.extend!).DEFAULT
                         }
                     }) : setColors({
                         ...colors,
                         colors: {
                             ...colors.colors,
-                            [key]: generatePallete(e.hsv)
+                            [key]: generatePallete(e.hsv, colors.extend!)
                         }
                     })
                 }}

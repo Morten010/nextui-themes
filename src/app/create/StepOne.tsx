@@ -75,19 +75,19 @@ const StepOne: FC<StepOneProps> = ({ colors, setColors, setStep, step }) => {
                         ...colors,
                         colors: {
                             ...colors.colors,
-                            [key]: generatePallete(e.hsv),
-                            focus: generatePallete(e.hsv).DEFAULT,
-                            content1: generatePallete(e.hsv)[200],
-                            content2: generatePallete(e.hsv)[300],
-                            content3: generatePallete(e.hsv)[400],
-                            content4: generatePallete(e.hsv)[500],
-                            divider: generatePallete(e.hsv)[600],
+                            [key]: generatePallete(e.hsv, colors.extend!),
+                            focus: generatePallete(e.hsv, "light").DEFAULT,
+                            content1: colors.extend === "dark"  ? generatePallete(e.hsv, "light")[800] : generatePallete(e.hsv, "light")[50],
+                            content2: colors.extend === "dark"  ? generatePallete(e.hsv, "light")[700] : generatePallete(e.hsv, "light")[300],
+                            content3: colors.extend === "dark"  ? generatePallete(e.hsv, "light")[600] : generatePallete(e.hsv, "light")[400],
+                            content4: colors.extend === "dark"  ? generatePallete(e.hsv, "light")[500] : generatePallete(e.hsv, "light")[500],
+                            divider: generatePallete(e.hsv, "light")[600],
                         }
                     }) : setColors({
                         ...colors,
                         colors: {
                             ...colors.colors,
-                            [key]: generatePallete(e.hsv)
+                            [key]: generatePallete(e.hsv, colors.extend!)
                         }
                     })
                 }}
