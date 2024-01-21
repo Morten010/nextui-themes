@@ -39,33 +39,51 @@ const page: FC<pageProps> = ({}) => {
     
   return (
     <>
-        {step === 1 && <StepOne 
-        setStep={setStep}
-        step={step}
-        colors={colors}
-        setColors={setColors}
-        />}
-        {step === 2 && <StepTwo 
-        setStep={setStep}
-        step={step}
-        colors={colors}
-        setColors={setColors}
-        />}
-        {step === 3 && <StepThree 
-        setStep={setStep}
-        step={step}
-        colors={colors}
-        setColors={setColors}
-        />}
-        {step === 4 && <StepFour 
-        setStep={setStep}
-        step={step}
-        colors={colors}
-        setColors={setColors}
-        />}
+        <div
+        className='hidden sm:inline-block w-full'
+        >
+            {step === 1 && <StepOne 
+            setStep={setStep}
+            step={step}
+            colors={colors}
+            setColors={setColors}
+            />}
+            {step === 2 && <StepTwo 
+            setStep={setStep}
+            step={step}
+            colors={colors}
+            setColors={setColors}
+            />}
+            {step === 3 && <StepThree 
+            setStep={setStep}
+            step={step}
+            colors={colors}
+            setColors={setColors}
+            />}
+            {step === 4 && <StepFour 
+            setStep={setStep}
+            step={step}
+            colors={colors}
+            setColors={setColors}
+            />}
+        </div>
+        <div
+        className='sm:hidden min-h-[70vh] grid place-content-center text-center'
+        >
+            <h1
+            className='text-3xl font-bold mb-2'
+            >
+                Oops! Looks like this content isn't phone-friendly 📱💔
+            </h1>
+            <p
+            className='text-default-500'
+            >
+                Sorry about that! The stuff you're trying to see doesn't work well on phones. 😟 For the best experience, please switch to a computer or laptop. If you don't have access to one right now, don't worry—try again later when you can. We'll be here! 🌟
+            </p>
+        </div>
         
         <div
-        className='flex gap-2 absolute bottom-5 left-2/4 -translate-x-2/4'
+        className='gap-2 absolute bottom-5 left-2/4 -translate-x-2/4 hidden sm:flex'
         >
             {steps.map((_ , index) => (
                 <div
