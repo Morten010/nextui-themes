@@ -8,6 +8,7 @@ import { generatePallete } from '@/lib/generatePallete'
 import { colors as Themes } from '@/constants'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
+
 interface StepTwoProps {
     setColors: Dispatch<SetStateAction<ConfigTheme>>
     colors: ConfigTheme
@@ -45,7 +46,7 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
         >
               
             <ColorPicker
-            colors={["#fafafa", "#121212", "#808080", "#e0e0e0", "#333333", "#c0c0c0", "#f5f5f5"]}
+            colors={colors.colors?.primary ? ["#808080", "#333333", "#c0c0c0", "#444", colors.colors.primary[100]!] : ["#808080", "#333333", "#c0c0c0", "#444"]}
             title="default"   
             key={"default"} 
             handleClick={() => {
@@ -64,11 +65,7 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                     colors: {
                         ...colors.colors,
                         default: generatePallete(e.hsv),
-                        content1: generatePallete(e.hsv)[300],
-                        content2: generatePallete(e.hsv)[400],
-                        content3: generatePallete(e.hsv)[500],
-                        content4: generatePallete(e.hsv)[600],
-                        divider: generatePallete(e.hsv)[700],
+                        
                     }
                 })
             }}
@@ -80,16 +77,23 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                 default: {
                     card:{
                         backgroundColor: theme ? Themes.find(t => t.name === theme)?.color : `transparent transparent ${theme}`,
-                        borderRadius: 4
+                        borderRadius: "14px",
+                        maxWidth: "135px"
                     },
                     body: {
                         backgroundColor: theme ? Themes.find(t => t.name === theme)?.color : `transparent transparent ${theme}`,
-                        borderRadius: 4
+                        borderRadius: 4,
                     },
                     triangle: {
                         borderColor: theme ? `transparent transparent ${Themes.find(t => t.name === theme)?.color}` : `transparent transparent ${theme}`,
                     },
-
+                    input: {
+                        border: "1px solid primary",
+                        borderRadius: 4
+                    },
+                    hash: {
+                        display: "none"
+                    }
                 }
             }}
             />
@@ -101,6 +105,8 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                     key === "background"
                 ) return (
                 <ColorPicker
+                direction={key === "background" ? "right": "left"}
+                triangle={key === "background" ? "top-right": "top-left"}
                 colors={["#fafafa", "#121212", "#808080", "#e0e0e0", "#333333", "#c0c0c0", "#f5f5f5"]}
                 title={key}   
                 key={key + index} 
@@ -119,7 +125,7 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                         ...colors,
                         colors: {
                             ...colors.colors,
-                            [key]: generatePallete(e.hsv),
+                            [key]: e.hex,
                             overlay: generatePallete(e.hsv).DEFAULT
                         }
                     }) : setColors({
@@ -138,16 +144,23 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                     default: {
                         card:{
                             backgroundColor: theme ? Themes.find(t => t.name === theme)?.color : `transparent transparent ${theme}`,
-                            borderRadius: 4
+                            borderRadius: "14px",
+                            maxWidth: "135px"
                         },
                         body: {
                             backgroundColor: theme ? Themes.find(t => t.name === theme)?.color : `transparent transparent ${theme}`,
-                            borderRadius: 4
+                            borderRadius: 4,
                         },
                         triangle: {
                             borderColor: theme ? `transparent transparent ${Themes.find(t => t.name === theme)?.color}` : `transparent transparent ${theme}`,
                         },
-
+                        input: {
+                            border: "1px solid primary",
+                            borderRadius: 4
+                        },
+                        hash: {
+                            display: "none"
+                        }
                     }
                 }}
                 />
@@ -156,7 +169,9 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
         <div
         className={`border dark:border-default-100 h-9 w-9 grid place-content-center rounded-full transition-all absolute top-2/4 right-10 -translate-y-2/4 ${isColorsDone() ? 2 === step ? "bg-primary/20 border-default-400 scale-105 text-primary font-bold cursor-pointer" : "hover:bg-primary/20 hover:scale-105 border-default-200 cursor-pointer" : "opacity-25"} z-20`}
         onClick={() => {
-            setStep(prevStep => prevStep + 1)
+            if(isColorsDone()){
+                setStep(prevStep => prevStep + 1)
+            }
         }}
         >
             <FaChevronRight />

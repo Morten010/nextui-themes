@@ -7,6 +7,8 @@ import { ConfigTheme } from '@nextui-org/react'
 import { generatePallete } from '@/lib/generatePallete'
 import { colors as Themes } from '@/constants'
 import { FaChevronRight } from 'react-icons/fa'
+import { AnimatePresence, motion } from 'framer-motion'
+
 
 interface StepOneProps {
     setColors: Dispatch<SetStateAction<ConfigTheme>>
@@ -74,7 +76,12 @@ const StepOne: FC<StepOneProps> = ({ colors, setColors, setStep, step }) => {
                         colors: {
                             ...colors.colors,
                             [key]: generatePallete(e.hsv),
-                            focus: generatePallete(e.hsv).DEFAULT
+                            focus: generatePallete(e.hsv).DEFAULT,
+                            content1: generatePallete(e.hsv)[200],
+                            content2: generatePallete(e.hsv)[300],
+                            content3: generatePallete(e.hsv)[400],
+                            content4: generatePallete(e.hsv)[500],
+                            divider: generatePallete(e.hsv)[600],
                         }
                     }) : setColors({
                         ...colors,
@@ -88,20 +95,29 @@ const StepOne: FC<StepOneProps> = ({ colors, setColors, setStep, step }) => {
                     console.log(e);
                     
                 }}
+                triangle={key === "danger" ? "top-right" : key === "primary" ? "top-right" : "top-left"}
+                direction={key === "danger" ? "right" : key === "primary" ? "right" : "left"}
                 styles={{
                     default: {
                         card:{
                             backgroundColor: theme ? Themes.find(t => t.name === theme)?.color : `transparent transparent ${theme}`,
-                            borderRadius: 4
+                            borderRadius: "14px",
+                            maxWidth: "135px"
                         },
                         body: {
                             backgroundColor: theme ? Themes.find(t => t.name === theme)?.color : `transparent transparent ${theme}`,
-                            borderRadius: 4
+                            borderRadius: 4,
                         },
                         triangle: {
                             borderColor: theme ? `transparent transparent ${Themes.find(t => t.name === theme)?.color}` : `transparent transparent ${theme}`,
                         },
-
+                        input: {
+                            border: "1px solid primary",
+                            borderRadius: 4
+                        },
+                        hash: {
+                            display: "none"
+                        }
                     }
                 }}
                 />
@@ -110,12 +126,13 @@ const StepOne: FC<StepOneProps> = ({ colors, setColors, setStep, step }) => {
         <div
         className={`border dark:border-default-100 h-9 w-9 grid place-content-center rounded-full transition-all absolute top-2/4 right-10 -translate-y-2/4 ${isColorsDone() ? 1 === step ? "bg-primary/20 border-default-400 scale-105 text-primary font-bold cursor-pointer" : "hover:bg-primary/20 hover:scale-105 border-default-200 cursor-pointer" : "opacity-25"}`}
         onClick={() => {
-            setStep(prevStep => prevStep + 1)
+            if(isColorsDone()){
+                setStep(prevStep => prevStep + 1)
+            }
         }}
         >
             <FaChevronRight />
         </div>
-        
     </ShowBox>
   )
 }

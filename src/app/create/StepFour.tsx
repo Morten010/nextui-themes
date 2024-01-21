@@ -17,7 +17,7 @@ const StepFour: FC<StepFourProps> = ({ colors, setColors, setStep, step }) => {
 
   return (
     <ShowBox
-    className='h-[75vh] max-h-[75vh] overflow-auto'
+    className='h-[75vh] max-h-[75vh] overflow-auto w-full'
     style={{
         overflow: "auto"
     }}

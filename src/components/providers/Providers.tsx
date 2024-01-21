@@ -14,7 +14,7 @@ const Providers: FC<providersProps> = ({children}) => {
     <NextUIProvider>
         <NextThemesProvider 
         attribute="class" 
-        themes={["light", "dark", "darkBlue", "cherryBlossom", "purple", "test"]}
+        themes={["light", "dark", "darkBlue", "cherryBlossom", "purple", "test", "neutrals"]}
         enableColorScheme
         >
             {children}

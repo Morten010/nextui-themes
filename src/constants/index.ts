@@ -30,8 +30,13 @@ export const colors = [
         color: "#394989"
     },
     {
+        title: "Neutrals",
+        name: "neutrals",
+        color: "#333"
+    },
+    {
         title: "Test",
         name: "test",
-        color: "green"
+        color: "#232323"
     }
 ]

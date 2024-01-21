@@ -16,6 +16,10 @@ export default function NavBar() {
       title: "Create",
       href: "/create"
     },
+    {
+      title: "Colors",
+      href: "/colors"
+    },
   ];
 
   return (

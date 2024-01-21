@@ -38,6 +38,8 @@ const Hero: FC<HeroProps> = ({}) => {
                 radius='lg'
                 />
                 <Button
+                as="a"
+                href='/create'
                 size='lg'
                 >
                     Create

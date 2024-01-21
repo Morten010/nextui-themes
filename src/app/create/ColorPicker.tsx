@@ -1,16 +1,17 @@
 "use client"
 import { ColorScale, Tooltip } from '@nextui-org/react'
-import { FC } from 'react'
-import { TwitterPicker, TwitterPickerProps } from 'react-color'
+import { FC, useState } from 'react'
+import { TwitterPicker, TwitterPickerProps, GithubPicker } from 'react-color'
 
 interface ColorPickerProps extends TwitterPickerProps {
   inFocus?: boolean,
   themeColors: ColorScale | undefined
   handleClick: () => void,
   title: string
+  direction?: "left" | "right"
 }
 
-const ColorPicker: FC<ColorPickerProps> = ({title, handleClick, themeColors, inFocus = false, ...props}) => {
+const ColorPicker: FC<ColorPickerProps> = ({ direction = "left", title, handleClick, themeColors, inFocus = false, ...props }) => {
     const primaryColor = themeColors ? typeof themeColors === "object" ? themeColors.DEFAULT : themeColors : "#fafafa"
     const colors = themeColors ? Object.values(themeColors) : []
     
@@ -24,18 +25,18 @@ const ColorPicker: FC<ColorPickerProps> = ({title, handleClick, themeColors, inF
         >
             <div
             onClick={handleClick}
-            className='cursor-pointer relative w-20 h-20 rounded-xl'
+            className='cursor-pointer relative w-20 h-20 rounded-xl border border-default-200 dark:border-default-100'
             style={{
                 backgroundColor: primaryColor
             }}
             >
                 {inFocus && <div
-                className='absolute -bottom-5 left-0 translate-y-full'
+                className={`absolute -bottom-5 translate-y-full ${direction === "left" ? "left-0" : "right-0"}`}
                 onClick={(e) => {
                     e.stopPropagation()
                 }}
                 >
-                    <TwitterPicker 
+                    <TwitterPicker
                     {...props}
                     />
                 </div>}
