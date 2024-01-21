@@ -6,7 +6,7 @@ interface ShowBoxProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,
 
 const ShowBox: FC<ShowBoxProps> = ({className, ...props}) => {
   return <div
-  className={`class="relative overflow-y-hidden flex items-center border border-default-200 dark:border-default-100 px-2 py-4 rounded-lg overflow-hidden ${className}`}
+  className={`overflow-y-hidden border border-default-200 dark:border-default-100 px-2 py-4 rounded-2xl ${className}`}
   {...props}
   />
 }

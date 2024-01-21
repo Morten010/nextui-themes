@@ -29,4 +29,9 @@ export const colors = [
         name: "darkBlue",
         color: "#394989"
     },
+    {
+        title: "Test",
+        name: "test",
+        color: "green"
+    }
 ]
