@@ -181,7 +181,7 @@ export default function page() {
                         showArrow
                         >
                             <div 
-                            className={`w-full aspect-square max-w-32 border rounded-lg ${color}`}
+                            className={`w-full aspect-square max-w-32 border border-divider rounded-lg ${color}`}
                             />
                         </Tooltip>
                     ))}

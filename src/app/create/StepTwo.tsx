@@ -64,7 +64,10 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                     ...colors,
                     colors: {
                         ...colors.colors,
-                    default: generatePallete(e.hsv, colors.extend!),
+                    default: {
+                        ...generatePallete(e.hsv, colors.extend!),
+                        foreground: generatePallete(e.hsv, colors.extend!)[50]
+                    }
                         
                     }
                 })
@@ -125,14 +128,25 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                         ...colors,
                         colors: {
                             ...colors.colors,
-                            [key]: generatePallete(e.hsv, colors.extend!).DEFAULT,
-                            overlay: generatePallete(e.hsv, colors.extend!).DEFAULT
+                            [key]: {
+                                DEFAULT: generatePallete(e.hsv, colors.extend!).DEFAULT,
+                                foreground: generatePallete(e.hsv, colors.extend!)[900]
+                            },
+                            overlay: generatePallete(e.hsv, colors.extend!).DEFAULT,
+                            content1: generatePallete(e.hsv, colors.extend!)[50],
+                            content2: generatePallete(e.hsv, colors.extend!)[100],
+                            content3: generatePallete(e.hsv, colors.extend!)[200],
+                            content4: generatePallete(e.hsv, colors.extend!)[300],
+                            divider: generatePallete(e.hsv, "light")[600],
                         }
                     }) : setColors({
                         ...colors,
                         colors: {
                             ...colors.colors,
-                            [key]: generatePallete(e.hsv, colors.extend!)
+                            [key]: {
+                                ...generatePallete(e.hsv, colors.extend!),
+                                foreground: generatePallete(e.hsv, colors.extend!)[50]
+                            }
                         }
                     })
                 }}

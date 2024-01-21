@@ -1,4 +1,5 @@
 import { cherryTheme } from "./cherryTheme";
+import { posthogTheme } from "./posthogTheme";
 import { purpleTheme } from "./purpleTheme";
 
 export const colors = [
@@ -13,30 +14,9 @@ export const colors = [
         color: "#121212"
     },
     {
-        title: "Purple",
-        name: "purple",
-        color: "#5042a1",
-        template: purpleTheme
-    }, 
-    {
-        title: "Cherry Blossom",
-        name: "cherryBlossom",
-        color: "#F9EBEA",
-        template: cherryTheme
+        title: "Posthog",
+        name: "posthog",
+        color: "#232323",
+        template: posthogTheme
     },
-    {
-        title: "Dark Blue",
-        name: "darkBlue",
-        color: "#394989"
-    },
-    {
-        title: "Neutrals",
-        name: "neutrals",
-        color: "#333"
-    },
-    {
-        title: "Test",
-        name: "test",
-        color: "#232323"
-    }
 ]
