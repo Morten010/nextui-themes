@@ -15,7 +15,7 @@ const Providers: FC<providersProps> = ({children}) => {
         <NextThemesProvider 
         attribute="class" 
         themes={["light", "dark", "posthog"]}
-        enableColorScheme
+        defaultTheme='posthog'
         >
             {children}
         </NextThemesProvider>
