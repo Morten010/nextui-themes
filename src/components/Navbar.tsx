@@ -1,8 +1,11 @@
+"use client"
 import React from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, NavbarMenuToggle, NavbarMenuItem, NavbarMenu} from "@nextui-org/react";
 import ColorsButton from "./ColorsButton";
+import { usePathname } from "next/navigation";
 
 export default function NavBar() {
+  const pathname = usePathname()
   const menuItems = [
     {
       title: "Home",
@@ -21,6 +24,25 @@ export default function NavBar() {
       href: "/colors"
     },
   ];
+
+  const isPathName = (path: string) => {
+    if(path === "/"){
+      if(path === pathname){
+        console.log(path, pathname);
+        
+        return true
+      }else{
+        console.log(path, pathname);
+
+        return false
+      }
+
+    }
+    
+    console.log(path, pathname);
+    return !!pathname.includes(path)
+  }
+  
 
   return (
     <Navbar isBordered>
@@ -43,7 +65,7 @@ export default function NavBar() {
           key={link.title + index }
           >
             <Link 
-            color="foreground"
+            color={isPathName(link.href) ? "primary" : "foreground"}
             href={link.href} 
             >
               {link.title}
@@ -67,9 +89,7 @@ export default function NavBar() {
           >
             <Link
               className="w-full"
-              color={
-                index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
-              }
+              color={isPathName(item.href) ? "primary" : "foreground"}
               href={item.href}
               size="lg"
             >

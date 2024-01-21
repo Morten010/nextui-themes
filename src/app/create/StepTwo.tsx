@@ -46,7 +46,7 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
         >
               
             <ColorPicker
-            colors={colors.colors?.primary ? ["#808080", "#333333", "#c0c0c0", "#444", colors.colors.primary[100]!] : ["#808080", "#333333", "#c0c0c0", "#444"]}
+            colors={colors.colors?.primary ? ["#808080", "#fafafa", "#333333", "#c0c0c0", "#444", colors.colors.primary[100]!] : ["#808080", "#fafafa", "#333333", "#c0c0c0", "#444"]}
             title="default"   
             key={"default"} 
             handleClick={() => {
