@@ -3,6 +3,7 @@ import React from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, NavbarMenuToggle, NavbarMenuItem, NavbarMenu} from "@nextui-org/react";
 import ColorsButton from "./ColorsButton";
 import { usePathname } from "next/navigation";
+import Logo from "./logo";
 
 export default function NavBar() {
   const pathname = usePathname()
@@ -49,13 +50,17 @@ export default function NavBar() {
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
-          <p className="font-bold text-inherit">ACME</p>
+          <Logo 
+          className="text-foreground h-9 w-9"
+          />
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarBrand>
-          <p className="font-bold text-inherit">ACME</p>
+          <Logo 
+          className="text-foreground h-9 w-9"
+          />
         </NavbarBrand>
         {menuItems.map((link, index) => (
           <NavbarItem
