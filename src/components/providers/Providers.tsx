@@ -14,7 +14,7 @@ const Providers: FC<providersProps> = ({children}) => {
     <NextUIProvider>
         <NextThemesProvider 
         attribute="class" 
-        themes={["light", "dark", "posthog"]}
+        themes={["light", "dark", "test", "posthog", "darkblue"]}
         defaultTheme='posthog'
         >
             {children}

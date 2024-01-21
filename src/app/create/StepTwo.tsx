@@ -7,6 +7,7 @@ import ColorPicker from './ColorPicker'
 import { generatePallete } from '@/lib/generatePallete'
 import { colors as Themes } from '@/constants'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { hslToHex } from '@/lib/hslToHex'
 
 
 interface StepTwoProps {
@@ -133,10 +134,10 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                                 foreground: generatePallete(e.hsv, colors.extend!)[900]
                             },
                             overlay: generatePallete(e.hsv, colors.extend!).DEFAULT,
-                            content1: generatePallete(e.hsv, colors.extend!)[50],
-                            content2: generatePallete(e.hsv, colors.extend!)[100],
-                            content3: generatePallete(e.hsv, colors.extend!)[200],
-                            content4: generatePallete(e.hsv, colors.extend!)[300],
+                            content1: colors.extend! === "dark" ? hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 8) : hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 92),
+                            content2: colors.extend! === "dark" ? hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 13) : hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 87),
+                            content3: colors.extend! === "dark" ? hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 18) : hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 82),
+                            content4: colors.extend! === "dark" ? hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 25) : hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 75),
                             divider: generatePallete(e.hsv, "light")[600],
                         }
                     }) : setColors({

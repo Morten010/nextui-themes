@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { colors } from "@/constants";
 import { CopyBlock, dracula } from "react-code-blocks";
 import Link from "next/link";
+import { Tooltip } from "@nextui-org/react";
 
 export default function App() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -38,15 +39,20 @@ export default function App() {
                 className="colorGrid"
                 >
                     {colors?.map((color, index) => (
-                      <div
-                      key={`theme-${index}-${color.name}`}
-                      className={`w-full aspect-square rounded mx-auto cursor-pointer hover:outline outline-offset-4 mb-2 ${color.name === theme ? "outline outline-primary" : ""}`}
-                      style={{
-                          backgroundColor: color.color,
-                          outline: "3px solid primary/60"
-                      }}
-                      onClick={() => setTheme(color.name)}
-                      />    
+                      <Tooltip
+                      content={color.title}
+                      showArrow
+                      >
+                        <div
+                        key={`theme-${index}-${color.name}`}
+                        className={`w-full aspect-square rounded mx-auto cursor-pointer hover:outline outline-offset-4 mb-2 ${color.name === theme ? "outline outline-primary" : ""}`}
+                        style={{
+                            backgroundColor: color.color,
+                            outline: "3px solid primary/60"
+                        }}
+                        onClick={() => setTheme(color.name)}
+                        />   
+                      </Tooltip> 
                     ))}
                 </div>
                 {choosenColor?.template && (<div
