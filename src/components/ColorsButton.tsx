@@ -3,7 +3,7 @@ import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure}
 import { Button } from "@nextui-org/button";
 import { useTheme } from "next-themes";
 import { colors } from "@/constants";
-import { CopyBlock, dracula } from "react-code-blocks";
+import { CopyBlock, dracula, atomOneDark } from "react-code-blocks";
 import Link from "next/link";
 import { Tooltip } from "@nextui-org/react";
 
@@ -12,7 +12,6 @@ export default function App() {
   const { theme, setTheme } = useTheme()
 
   const choosenColor = colors.find(c => c.name === theme)
-  console.log(theme);
   
   return (
     <>
@@ -94,7 +93,7 @@ export default function App() {
                   text={choosenColor.template}
                   language="js"
                   showLineNumbers={true}
-                  theme={dracula}
+                  theme={atomOneDark}
                   />
                 </div>)}
                 {theme === "dark" && (<div>

@@ -4,7 +4,7 @@ import { Dispatch, FC, SetStateAction, useState } from 'react'
 import { useTheme } from 'next-themes'
 import { ConfigTheme } from '@nextui-org/react'
 import { FaChevronLeft } from 'react-icons/fa'
-import { CopyBlock, dracula } from "react-code-blocks";
+import { CopyBlock, atomOneDark, dracula } from "react-code-blocks";
 
 interface StepFourProps {
     setColors: Dispatch<SetStateAction<ConfigTheme>>
@@ -31,8 +31,7 @@ const StepFour: FC<StepFourProps> = ({ colors, setColors, setStep, step }) => {
         <CopyBlock 
         language='json'
         text={JSON.stringify(colors, null, 2)}
-        theme={dracula}
-        
+        theme={atomOneDark}
         />
         
         <div
