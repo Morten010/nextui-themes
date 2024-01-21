@@ -16,12 +16,12 @@ export default function NavBar() {
       href: "/components"
     },
     {
-      title: "Create",
-      href: "/create"
-    },
-    {
       title: "Colors",
       href: "/colors"
+    },
+    {
+      title: "Create",
+      href: "/create"
     },
   ];
 

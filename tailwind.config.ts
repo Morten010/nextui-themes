@@ -163,8 +163,8 @@ const config: Config = {
             "700": "#e8e8e8",
             "800": "#f5f5f5",
             "900": "#fafafa",
-            "DEFAULT": "#FAFAFA",
-            "foreground": "#262626"
+            "DEFAULT": "#787878",
+            "foreground": "#fafafa"
           },
           "divider": "#475dff",
           "focus": "#5C6AD1",
@@ -272,8 +272,8 @@ const config: Config = {
             "700": "#e8e8e8",
             "800": "#f5f5f5",
             "900": "#fafafa",
-            "DEFAULT": "#FAFAFA",
-            foreground: "#1C1E26"
+            "DEFAULT": "#787878",
+            foreground: "#fafafa"
           },
           "divider": "#8b95bb",
           "focus": "#F7A500",
@@ -288,7 +288,8 @@ const config: Config = {
             "700": "#e8e8e8",
             "800": "#f5f5f5",
             "900": "#fafafa",
-            "DEFAULT": "#FAFAFA"
+            "DEFAULT": "#FAFAFA",
+            "foreground": "#262626"
           },
           "overlay": "#1C1E26",
           "primary": {

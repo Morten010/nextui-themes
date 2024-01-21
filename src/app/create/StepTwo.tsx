@@ -67,7 +67,8 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                         ...colors.colors,
                     default: {
                         ...generatePallete(e.hsv, colors.extend!),
-                        foreground: generatePallete(e.hsv, colors.extend!)[50]
+                        foreground: generatePallete(e.hsv, colors.extend!)[900],
+                        DEFAULT: generatePallete(e.hsv, colors.extend!)[200]
                     }
                         
                     }
