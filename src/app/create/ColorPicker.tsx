@@ -9,9 +9,10 @@ interface ColorPickerProps extends TwitterPickerProps {
   handleClick: () => void,
   title: string
   direction?: "left" | "right"
+  resetFocus: () => void 
 }
 
-const ColorPicker: FC<ColorPickerProps> = ({ direction = "left", title, handleClick, themeColors, inFocus = false, ...props }) => {
+const ColorPicker: FC<ColorPickerProps> = ({ direction = "left", title, handleClick, themeColors, inFocus = false, resetFocus, ...props }) => {
     const primaryColor = themeColors ? typeof themeColors === "object" ? themeColors.DEFAULT : themeColors : "#fafafa"
     const colors = themeColors ? Object.values(themeColors) : []
     
@@ -25,13 +26,13 @@ const ColorPicker: FC<ColorPickerProps> = ({ direction = "left", title, handleCl
         >
             <div
             onClick={handleClick}
-            className='cursor-pointer relative w-20 h-20 rounded-xl border border-default-200 dark:border-default-100'
+            className='cursor-pointer relative w-20 h-20 rounded-xl border border-default-200 dark:border-default-100 z-20'
             style={{
                 backgroundColor: primaryColor
             }}
             >
                 {inFocus && <div
-                className={`absolute -bottom-5 translate-y-full ${direction === "left" ? "left-0" : "right-0"}`}
+                className={`absolute -bottom-5 translate-y-full z-20 ${direction === "left" ? "left-0" : "right-0"}`}
                 onClick={(e) => {
                     e.stopPropagation()
                 }}
@@ -59,6 +60,12 @@ const ColorPicker: FC<ColorPickerProps> = ({ direction = "left", title, handleCl
                 </Tooltip>
             ))}
         </div>
+        {inFocus && (
+            <div 
+            className='absolute w-full h-screen top-0 left-0'
+            onClick={() => resetFocus()}
+            />
+        )}
     </div>
   )
 }

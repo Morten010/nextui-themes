@@ -67,7 +67,7 @@ const StepOne: FC<StepOneProps> = ({ colors, setColors, setStep, step }) => {
                         setFocus(key)
                     }
                 }}
-                // @ts-ignore
+                resetFocus={() => setFocus("")}
                 themeColors={colors.colors?.[key]}
                 inFocus={key === focus}
                 onChange={(e: any) => {
