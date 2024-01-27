@@ -1,5 +1,6 @@
 'use client'
 
+import { colors } from '@/constants';
 import { NextUIProvider } from '@nextui-org/react'
 import {ThemeProvider as NextThemesProvider, useTheme} from "next-themes";
 import { FC } from 'react'
@@ -10,11 +11,15 @@ interface providersProps {
 
 const Providers: FC<providersProps> = ({children}) => {
     
+  const themes = colors.map(color => color.name)
+  console.log(themes);
+  
+
   return (
     <NextUIProvider>
         <NextThemesProvider 
         attribute="class" 
-        themes={["light", "dark", "test", "posthog", "darkblue"]}
+        themes={themes}
         defaultTheme='posthog'
         >
             {children}

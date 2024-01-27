@@ -13,11 +13,6 @@ export const colors = [
         name: "dark",
         color: "#121212"
     },
-    // {
-    //     title: "Test",
-    //     name: "test",
-    //     color: "#232323",
-    // },
     {
         title: "Posthog",
         name: "posthog",
@@ -26,8 +21,14 @@ export const colors = [
     },
     {
         title: "Dark blue",
-        name: "darkblue",
-        color: "#000212",
+        name: "darkBlue",
+        color: "#394989",
         template: posthogTheme
+    },
+    {
+        title: "Blossom",
+        name: "blossomTheme",
+        color: "#ff9393",
+        template: cherryTheme
     },
 ]
