@@ -48,6 +48,7 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
               
             <ColorPicker
             colors={colors.colors?.primary ? ["#808080", "#fafafa", "#333333", "#c0c0c0", "#444", colors.colors.primary[100]!] : ["#808080", "#fafafa", "#333333", "#c0c0c0", "#444"]}
+            resetFocus={() => setFocus("")}
             title="default"   
             key={"default"} 
             handleClick={() => {
@@ -110,6 +111,7 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                     key === "background"
                 ) return (
                 <ColorPicker
+                resetFocus={() => setFocus("")}
                 direction={key === "background" ? "right": "left"}
                 triangle={key === "background" ? "top-right": "top-left"}
                 colors={["#fafafa", "#121212", "#808080", "#e0e0e0", "#333333", "#c0c0c0", "#f5f5f5"]}
