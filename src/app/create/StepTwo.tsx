@@ -122,7 +122,7 @@ const StepOne: FC<StepOneProps> = ({ colors, setColors, setStep, step }) => {
             )})}
         </div>
         <div
-        className={`border bg-black dark:border-default-100 h-9 w-9 grid place-content-center rounded-full transition-all absolute top-2/4 left-10 -translate-y-2/4 hover:bg-primary/20 hover:scale-105 border-default-200 cursor-pointer z-20`}
+        className={`border bg-background dark:border-default-100 h-9 w-9 grid place-content-center rounded-full transition-all absolute top-2/4 left-10 -translate-y-2/4 hover:bg-primary/20 hover:scale-105 border-default-200 cursor-pointer z-20`}
         onClick={() => {
             setStep(prevStep => prevStep - 1)
         }}

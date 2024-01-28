@@ -134,7 +134,7 @@ const StepThree: FC<StepThreeProps> = ({ colors, setColors, setStep, step }) => 
     }
 
   return <ShowBox
-  className='h-[75vh] max-h-[75vh] w-full'
+  className='h-[75vh] max-h-[75vh] w-full relative'
   >
     <h2
     className='text-3xl font-semibold text-center'

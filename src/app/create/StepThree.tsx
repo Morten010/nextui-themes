@@ -183,7 +183,7 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
             )})}
         </div>
         <div
-        className={`border bg-black dark:border-default-100 h-9 w-9 grid place-content-center rounded-full transition-all absolute top-2/4 right-10 -translate-y-2/4 ${isColorsDone() ? 2 === step ? "bg-primary/20 border-default-400 scale-105 text-primary font-bold cursor-pointer" : "hover:bg-primary/20 hover:scale-105 border-default-200 cursor-pointer" : "opacity-25"} z-20`}
+        className={`border bg-background dark:border-default-100 h-9 w-9 grid place-content-center rounded-full transition-all absolute top-2/4 right-10 -translate-y-2/4 ${isColorsDone() ? 2 === step ? "bg-primary/20 border-default-400 scale-105 text-primary font-bold cursor-pointer" : "hover:bg-primary/20 hover:scale-105 border-default-200 cursor-pointer" : "opacity-25"} z-20`}
         onClick={() => {
             if(isColorsDone()){
                 setStep(prevStep => prevStep + 1)
@@ -193,7 +193,7 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
             <FaChevronRight />
         </div>
         <div
-        className={`border bg-black dark:border-default-100 h-9 w-9 grid place-content-center rounded-full transition-all absolute top-2/4 left-10 -translate-y-2/4 ${2 === step ? "bg-primary/20 border-default-400 scale-105 text-primary font-bold cursor-pointer" : "hover:bg-primary/20 hover:scale-105 border-default-200 cursor-pointer"} z-20`}
+        className={`border bg-background dark:border-default-100 h-9 w-9 grid place-content-center rounded-full transition-all absolute top-2/4 left-10 -translate-y-2/4 ${2 === step ? "bg-primary/20 border-default-400 scale-105 text-primary font-bold cursor-pointer" : "hover:bg-primary/20 hover:scale-105 border-default-200 cursor-pointer"} z-20`}
         onClick={() => {
             setStep(prevStep => prevStep - 1)
         }}
