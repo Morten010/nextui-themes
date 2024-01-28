@@ -1,32 +1,35 @@
 "use client"
 import ShowBox from '@/components/ShowBox'
-import { Button, ConfigTheme } from '@nextui-org/react'
-import { useTheme } from 'next-themes'
 import { Dispatch, FC, SetStateAction, useState } from 'react'
+import { useTheme } from 'next-themes'
 import ColorPicker from './ColorPicker'
+import { Button, ConfigTheme } from '@nextui-org/react'
 import { generatePallete } from '@/lib/generatePallete'
 import { colors as Themes } from '@/constants'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
-import { hslToHex } from '@/lib/hslToHex'
+import { FaTrashCan } from "react-icons/fa6"
 import MoreModal from '@/components/MoreModal'
+import { BiShoppingBag } from 'react-icons/bi'
+import { IoIosWarning } from 'react-icons/io'
 
-
-interface StepTwoProps {
+interface StepOneProps {
     setColors: Dispatch<SetStateAction<ConfigTheme>>
     colors: ConfigTheme
     setStep: Dispatch<SetStateAction<number>>
     step: number
 }
 
-const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
+const StepOne: FC<StepOneProps> = ({ colors, setColors, setStep, step }) => {
     const {theme, setTheme} = useTheme()
     const [focus, setFocus] = useState("")
 
     const isColorsDone = () => {
         if(
-            !!colors.colors?.default &&
-            !!colors.colors?.foreground &&
-            !!colors.colors?.background
+            !!colors.colors?.primary &&
+            !!colors.colors?.warning &&
+            !!colors.colors?.success &&
+            !!colors.colors?.secondary &&
+            !!colors.colors?.danger
         ){
             return true
         }else{
@@ -42,81 +45,22 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
         <h2
         className='text-3xl font-semibold text-center'
         >
-            Pick The boring colors
+            Pick you're main colors
         </h2>
         <div
         className='flex gap-2 justify-evenly mt-5'
         >
-              
-            <ColorPicker
-            colors={colors.colors?.primary ? ["#808080", "#fafafa", "#333333", "#c0c0c0", "#444", colors.colors.primary[100]!] : ["#808080", "#fafafa", "#333333", "#c0c0c0", "#444"]}
-            resetFocus={() => setFocus("")}
-            title="default"   
-            key={"default"} 
-            handleClick={() => {
-                if("default" === focus){
-                    setFocus("")
-                }else{
-                    setFocus("default")
-                }
-            }}
-            // @ts-ignore
-            themeColors={colors.colors?.default}
-            inFocus={"default" === focus}
-            onChange={(e: any) => {
-                setColors({
-                    ...colors,
-                    colors: {
-                        ...colors.colors,
-                    default: {
-                        ...generatePallete(e.hsv, colors.extend!),
-                        foreground: generatePallete(e.hsv, colors.extend!)[900],
-                        DEFAULT: generatePallete(e.hsv, colors.extend!)[200]
-                    }
-                        
-                    }
-                })
-            }}
-            onChangeComplete={(e: any) => {
-                console.log(e);
-                
-            }}
-            styles={{
-                default: {
-                    card:{
-                        backgroundColor: theme ? Themes.find(t => t.name === theme)?.color : `transparent transparent ${theme}`,
-                        borderRadius: "14px",
-                        maxWidth: "135px"
-                    },
-                    body: {
-                        backgroundColor: theme ? Themes.find(t => t.name === theme)?.color : `transparent transparent ${theme}`,
-                        borderRadius: 4,
-                    },
-                    triangle: {
-                        borderColor: theme ? `transparent transparent ${Themes.find(t => t.name === theme)?.color}` : `transparent transparent ${theme}`,
-                    },
-                    input: {
-                        border: "1px solid primary",
-                        borderRadius: 4
-                    },
-                    hash: {
-                        display: "none"
-                    }
-                }
-            }}
-            />
             {colors.colors && Object.keys(colors.colors).reverse().map((key, index) => {
                     console.log(key === focus);
                     console.log(key, focus);
                 if(
-                    key === "foreground" ||
-                    key === "background"
+                    key === "primary" ||
+                    key === "secondary" ||
+                    key === "success" ||
+                    key === "danger" ||
+                    key === "warning" 
                 ) return (
                 <ColorPicker
-                resetFocus={() => setFocus("")}
-                direction={key === "background" ? "right": "left"}
-                triangle={key === "background" ? "top-right": "top-left"}
-                colors={["#fafafa", "#121212", "#808080", "#e0e0e0", "#333333", "#c0c0c0", "#f5f5f5"]}
                 title={key}   
                 key={key + index} 
                 handleClick={() => {
@@ -126,36 +70,31 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
                         setFocus(key)
                     }
                 }}
-                // @ts-ignore
+                resetFocus={() => setFocus("")}
                 themeColors={colors.colors?.[key]}
                 inFocus={key === focus}
                 onChange={(e: any) => {
-                    key === "background" ? setColors({
+                    key === "primary" ? setColors({
                         ...colors,
                         colors: {
                             ...colors.colors,
-                            [key]: {
-                                DEFAULT: generatePallete(e.hsv, colors.extend!).DEFAULT,
-                                foreground: generatePallete(e.hsv, colors.extend!)[900]
-                            },
-                            overlay: generatePallete(e.hsv, colors.extend!).DEFAULT,
-                            content1: colors.extend! === "dark" ? hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 8) : hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 92),
-                            content2: colors.extend! === "dark" ? hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 13) : hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 87),
-                            content3: colors.extend! === "dark" ? hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 18) : hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 82),
-                            content4: colors.extend! === "dark" ? hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 25) : hslToHex(Math.round(e.hsv.h), Math.round(e.hsv.s * 100), 75),
-                            divider: generatePallete(e.hsv, "light")[600],
+                            [key]: generatePallete(e.hsv, colors.extend!),
+                            focus: generatePallete(e.hsv, "light").DEFAULT,
                         }
                     }) : setColors({
                         ...colors,
                         colors: {
                             ...colors.colors,
-                            [key]: {
-                                ...generatePallete(e.hsv, colors.extend!),
-                                foreground: generatePallete(e.hsv, colors.extend!)[50]
-                            }
+                            [key]: generatePallete(e.hsv, colors.extend!)
                         }
                     })
                 }}
+                onChangeComplete={(e: any) => {
+                    console.log(e);
+                    
+                }}
+                triangle={key === "danger" ? "top-right" : key === "primary" ? "top-right" : "top-left"}
+                direction={key === "danger" ? "right" : key === "primary" ? "right" : "left"}
                 styles={{
                     default: {
                         card:{
@@ -183,7 +122,15 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
             )})}
         </div>
         <div
-        className={`border dark:border-default-100 h-9 w-9 grid place-content-center rounded-full transition-all absolute top-2/4 right-10 -translate-y-2/4 ${isColorsDone() ? 2 === step ? "bg-primary/20 border-default-400 scale-105 text-primary font-bold cursor-pointer" : "hover:bg-primary/20 hover:scale-105 border-default-200 cursor-pointer" : "opacity-25"} z-20`}
+        className={`border bg-black dark:border-default-100 h-9 w-9 grid place-content-center rounded-full transition-all absolute top-2/4 left-10 -translate-y-2/4 hover:bg-primary/20 hover:scale-105 border-default-200 cursor-pointer z-20`}
+        onClick={() => {
+            setStep(prevStep => prevStep - 1)
+        }}
+        >
+            <FaChevronLeft />
+        </div>
+        <div
+        className={`border bg-background dark:border-default-100 h-9 w-9 grid place-content-center rounded-full transition-all absolute top-2/4 right-10 -translate-y-2/4 ${isColorsDone() ? 1 === step ? "bg-primary/20 border-default-400 scale-105 text-primary font-bold cursor-pointer" : "hover:bg-primary/20 hover:scale-105 border-default-200 cursor-pointer" : "opacity-25"}`}
         onClick={() => {
             if(isColorsDone()){
                 setStep(prevStep => prevStep + 1)
@@ -191,14 +138,6 @@ const StepTwo: FC<StepTwoProps> = ({ colors, setColors, setStep, step }) => {
         }}
         >
             <FaChevronRight />
-        </div>
-        <div
-        className={`border dark:border-default-100 h-9 w-9 grid place-content-center rounded-full transition-all absolute top-2/4 left-10 -translate-y-2/4 ${2 === step ? "bg-primary/20 border-default-400 scale-105 text-primary font-bold cursor-pointer" : "hover:bg-primary/20 hover:scale-105 border-default-200 cursor-pointer"} z-20`}
-        onClick={() => {
-            setStep(prevStep => prevStep - 1)
-        }}
-        >
-            <FaChevronLeft />
         </div>
     </ShowBox>
   )
@@ -211,69 +150,93 @@ const Modal = () => {
             <h3
             className='text-lg font-bold'
             >
-                Default color
+                Primary color
             </h3>
             <p
             className='text-foreground'
             >
-                This color is used for some borders, and other default colors mostly the opposite of the background color or the same as the foreground color.
+                This is the primary color which will be used on you're website. The one on most button's you will be using.
             </p>
-            <ShowBox
-            className='mr-auto px-4 mb-3'
+            <Button
+            startContent={<BiShoppingBag className='text-xl'/>}
+            color='primary'
+            className='mr-auto mb-3'
             >
-                This border
-            </ShowBox>
+                Buy now
+            </Button>
             <h3
             className='text-lg font-bold'
             >
-                Foreground colors
+                Secondary color
             </h3>
             <p
             className='text-foreground'
             >
-                This color is used for the foreground(Text color).
+                Secondary colors complement the main color and are used to highlight secondary information on your website. They should contrast with your main color to create visual interest and guide your visitors' eyes through your site.
             </p>
-            <ShowBox
-            className='mr-auto px-4 mb-3'
+            <Button
+            color='secondary'
+            className='mr-auto mb-3'
             >
-                <h4
-                className='font-bold'
-                >
-                    This is the foreground color
-                </h4>
-                <p
-                className='text-foreground-500'
-                >
-                    This is a muted foreground color
-                </p>
-            </ShowBox>
+                Get Started
+            </Button>
+            <h3
+            className='text-lg font-bold'
+            >
+                Success color
+            </h3>
+            <p
+            className='text-foreground'
+            >
+                Success color is a color that shows that something good will happened or did happen. Like an accept button or a success message.
+            </p>
+            <Button
+            color='success'
+            className='mr-auto mb-3'
+            >
+                Accept
+            </Button>
+            <h3
+            className='text-lg font-bold'
+            >
+                Warning color
+            </h3>
+            <p className='text-foreground'>
+                Warning color is a hue that signals caution or potential issues. It is commonly used to draw attention to important information that requires careful consideration. This color is often associated with alert messages, warning signs, or prompts indicating potential risks or actions that users need to be aware of.
+            </p>
+            <div
+            className='border border-warning p-2 mr-auto rounded flex gap-2 text-warning items-center mb-3 mt-1'
+            >
+                <IoIosWarning
+                className='text-2xl'
+                />
+                <div>
+                    <h4
+                    className='font-bold'
+                    >
+                        Warning
+                    </h4>
+                    <p>
+                        If you delete this you won't be able to get it back
+                    </p>
+                </div>
 
-            <h3
-            className='text-lg font-bold'
-            >
-                Background color
+            </div>
+            <h3 className='text-lg font-bold'>
+                Danger Color
             </h3>
-            <p
-            className='text-foreground'
-            >
-                This is the color for the background of the page
+            <p className='text-foreground'>
+                Danger color is a vivid shade that signifies a potential threat or critical situation. It is often used to grab immediate attention and warn users about actions or elements that could have severe consequences. Commonly associated with error messages, delete buttons, or alerts, the danger color serves as a visual cue to prompt users to proceed with caution or take corrective actions.
             </p>
-            <ShowBox
-            className='bg-background px-4'
+            <Button
+            color='danger'
+            className='mr-auto mb-3'
+            startContent={<FaTrashCan className='text-xl'/>}
             >
-               <h4
-               className='text-lg font-bold'
-               >
-                    This is the background color
-               </h4>
-               <p
-               className='text-foreground-500'
-               >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit ipsa distinctio ab dolorum voluptatem soluta dignissimos est ducimus suscipit illo optio voluptatum cum incidunt eveniet, nostrum maxime facilis non exercitationem.
-               </p>
-            </ShowBox>
+                Delete Product
+            </Button>
         </MoreModal>            
     )
 }
 
-export default StepTwo
+export default StepOne

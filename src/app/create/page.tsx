@@ -14,6 +14,7 @@ interface pageProps {
 const page: FC<pageProps> = ({}) => {
     const [step, setStep] = useState(1)
     const steps = Array(4).fill("")
+
     const [colors, setColors] = useState<ConfigTheme>({
         colors: {
             background: "",
