@@ -10,10 +10,7 @@ interface providersProps {
 }
 
 const Providers: FC<providersProps> = ({children}) => {
-    
   const themes = colors.map(color => color.name)
-  console.log(themes);
-  
 
   return (
     <NextUIProvider>

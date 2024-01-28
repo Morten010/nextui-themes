@@ -89,17 +89,9 @@ const StepThree: FC<StepThreeProps> = ({ colors, setColors, setStep, step }) => 
                     },
                     background: {
                         // @ts-ignore
-                        ...colors.colors?.background,
-                        "50": colors.colors?.background?.[900],
-                        "100": colors.colors?.background?.[800],
-                        "200": colors.colors?.background?.[700],
-                        "300": colors.colors?.background?.[600],
-                        "400": colors.colors?.background?.[500],
-                        "500": colors.colors?.background?.[400],
-                        "600": colors.colors?.background?.[300],
-                        "700": colors.colors?.background?.[200],
-                        "800": colors.colors?.background?.[100],
-                        "900": colors.colors?.background?.[50],
+                        "DEFAULT": colors.colors?.background?.["foreground"],
+                        // @ts-ignore
+                        "foreground": colors.colors?.background?.["DEFAULT"]
                     },
                     default: {
                         // @ts-ignore
