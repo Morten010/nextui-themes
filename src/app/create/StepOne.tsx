@@ -17,7 +17,7 @@ const StepThree: FC<StepThreeProps> = ({ colors, setColors, setStep, step }) => 
                 ...colors,
                 colors: {
                     ...colors.colors,
-                    danger: {
+                    danger: colors.colors?.danger ? {
                         // @ts-ignore
                         ...colors.colors?.danger,
                         "50": colors.colors?.danger?.[900],
@@ -30,8 +30,8 @@ const StepThree: FC<StepThreeProps> = ({ colors, setColors, setStep, step }) => 
                         "700": colors.colors?.danger?.[200],
                         "800": colors.colors?.danger?.[100],
                         "900": colors.colors?.danger?.[50],
-                    },
-                    primary: {
+                    }: "", 
+                    primary: colors.colors?.primary ? {
                         // @ts-ignore
                         ...colors.colors?.primary,
                         "50": colors.colors?.primary?.[900],
@@ -44,8 +44,8 @@ const StepThree: FC<StepThreeProps> = ({ colors, setColors, setStep, step }) => 
                         "700": colors.colors?.primary?.[200],
                         "800": colors.colors?.primary?.[100],
                         "900": colors.colors?.primary?.[50],
-                    },
-                    secondary: {
+                    } : "",
+                    secondary: colors.colors?.secondary ? {
                         // @ts-ignore
                         ...colors.colors?.secondary,
                         "50": colors.colors?.secondary?.[900],
@@ -58,8 +58,8 @@ const StepThree: FC<StepThreeProps> = ({ colors, setColors, setStep, step }) => 
                         "700": colors.colors?.secondary?.[200],
                         "800": colors.colors?.secondary?.[100],
                         "900": colors.colors?.secondary?.[50],
-                    },
-                    success: {
+                    }: "",
+                    success: colors.colors?.success ?{
                         // @ts-ignore
                         ...colors.colors?.success,
                         "50": colors.colors?.success?.[900],
@@ -72,8 +72,8 @@ const StepThree: FC<StepThreeProps> = ({ colors, setColors, setStep, step }) => 
                         "700": colors.colors?.success?.[200],
                         "800": colors.colors?.success?.[100],
                         "900": colors.colors?.success?.[50],
-                    },
-                    warning: {
+                    }: "",
+                    warning: colors.colors?.warning ?{
                         // @ts-ignore
                         ...colors.colors?.warning,
                         "50": colors.colors?.warning?.[900],
@@ -86,14 +86,14 @@ const StepThree: FC<StepThreeProps> = ({ colors, setColors, setStep, step }) => 
                         "700": colors.colors?.warning?.[200],
                         "800": colors.colors?.warning?.[100],
                         "900": colors.colors?.warning?.[50],
-                    },
-                    background: {
+                    } : "",
+                    background: colors.colors?.primary ? {
                         // @ts-ignore
                         "DEFAULT": colors.colors?.background?.["foreground"],
                         // @ts-ignore
                         "foreground": colors.colors?.background?.["DEFAULT"]
-                    },
-                    default: {
+                    } : "",
+                    default: colors.colors?.default ? {
                         // @ts-ignore
                         ...colors.colors?.default,
                         "50": colors.colors?.default?.[900],
@@ -106,8 +106,8 @@ const StepThree: FC<StepThreeProps> = ({ colors, setColors, setStep, step }) => 
                         "700": colors.colors?.default?.[200],
                         "800": colors.colors?.default?.[100],
                         "900": colors.colors?.default?.[50],
-                    },
-                    foreground: {
+                    } : "",
+                    foreground: colors.colors?.foreground ? {
                          // @ts-ignore
                          ...colors.colors?.foreground,
                          "50": colors.colors?.foreground?.[900],
@@ -120,11 +120,11 @@ const StepThree: FC<StepThreeProps> = ({ colors, setColors, setStep, step }) => 
                          "700": colors.colors?.foreground?.[200],
                          "800": colors.colors?.foreground?.[100],
                          "900": colors.colors?.foreground?.[50],
-                    },
-                    content1: colors.colors?.default?.[800],
-                    content2: colors.colors?.default?.[700],
-                    content3: colors.colors?.default?.[600],
-                    content4: colors.colors?.default?.[500],
+                    } : "",
+                    content1: colors.colors?.content1 ? colors.colors?.default?.[800] : "",
+                    content2: colors.colors?.content2 ? colors.colors?.default?.[700] : "",
+                    content3: colors.colors?.content3 ? colors.colors?.default?.[600] : "",
+                    content4: colors.colors?.content4 ? colors.colors?.default?.[500] : "",
                     
                 },
                 extend: colors.extend === "dark" ? "light": "dark"
