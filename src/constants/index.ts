@@ -1,4 +1,5 @@
 import { cherryTheme } from "./cherryTheme";
+import { politicalTheme } from "./politicalTheme";
 import { posthogTheme } from "./posthogTheme";
 import { purpleTheme } from "./purpleTheme";
 
@@ -30,5 +31,11 @@ export const colors = [
         name: "blossomTheme",
         color: "#ff9393",
         template: cherryTheme
+    },
+    {
+        title: "Political",
+        name: "political",
+        color: "#0D2240",
+        template: politicalTheme
     },
 ]

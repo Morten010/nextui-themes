@@ -54,7 +54,7 @@ const ProductCards: FC<ProductCardsProps> = ({}) => {
                 </CardBody>
                 <CardFooter className="text-small justify-between">
                     <b>{item.title}</b>
-                    <p className="text-default-500">{item.price}</p>
+                    <p className="text-success">{item.price}</p>
                 </CardFooter>
                 </Card>
             ))}

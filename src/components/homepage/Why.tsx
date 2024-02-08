@@ -22,7 +22,7 @@ export default function Why() {
                 className='text-center'
                 >
                     <div 
-                    className='h-16 w-16 dark:bg-primary-200 bg-primary-900 mx-auto rotate-45 rounded-md my-4 shadow-primary hover:scale-105 relative transition-all'
+                    className='h-16 w-16 dark:bg-primary-200 bg-primary-800 mx-auto rotate-45 rounded-md my-4 shadow-primary hover:scale-105 relative transition-all'
                     >
                         <BiHourglass 
                         className='-rotate-45 absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-4xl text-primary'
@@ -34,7 +34,7 @@ export default function Why() {
                         Saves time
                     </h3>
                     <p
-                    className='text-default-500'
+                    className='text-foreground-700'
                     >
                         Premade components and now themes. how much easier does it get
                     </p>
@@ -46,7 +46,7 @@ export default function Why() {
                 className='text-center'
                 >
                     <div 
-                    className='h-16 w-16 dark:bg-primary-200 bg-primary-900 mx-auto rotate-45 rounded-md my-4 shadow-primary hover:scale-105 relative transition-all'
+                    className='h-16 w-16 dark:bg-primary-200 bg-primary-800 mx-auto rotate-45 rounded-md my-4 shadow-primary hover:scale-105 relative transition-all'
                     >
                         <IoIosRose
                         className='-rotate-45 absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-4xl text-primary'
@@ -58,7 +58,7 @@ export default function Why() {
                         Good looking
                     </h3>
                     <p
-                    className='text-default-500'
+                    className='text-foreground-700'
                     >
                         All components looks good and clean. Plus it is easy to customize.
                     </p>
@@ -70,7 +70,7 @@ export default function Why() {
                 className='text-center'
                 >
                     <div 
-                    className='h-16 w-16 dark:bg-primary-200 bg-primary-900 mx-auto rotate-45 rounded-md my-4 shadow-primary hover:scale-105 relative transition-all'
+                    className='h-16 w-16 dark:bg-primary-200 bg-primary-800 mx-auto rotate-45 rounded-md my-4 shadow-primary hover:scale-105 relative transition-all'
                     >
                         <FaLaptopCode
                         className='-rotate-45 absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-4xl text-primary'
@@ -82,7 +82,7 @@ export default function Why() {
                         Easy to setup
                     </h3>
                     <p
-                    className='text-default-500'
+                    className='text-foreground-700'
                     >
                         Easy to setup just go to the <Link
                         href="https://nextui.org/"
