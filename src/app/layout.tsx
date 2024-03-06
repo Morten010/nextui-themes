@@ -7,8 +7,17 @@ import Navbar from "../components/Navbar"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "NextUI Themes - Theme Generator for Your Next Project",
-  description: "Explore and create NextUI themes with our theme generator. Find the perfect theme for your next project and customize it to suit your needs.",
+    title: {
+      default: 'NextUI Themes - Theme Generator for Your Next Project',
+      template: "%s | NextUi Themes"
+    },
+    description: "Explore and create NextUI themes with our theme generator. Find the perfect theme for your next project and customize it to suit your needs.",
+    openGraph: {
+      title: 'NextUI Themes - Theme Generator for Your Next Project',
+      description: "Explore and create NextUI themes with our theme generator. Find the perfect theme for your next project and customize it to suit your needs.",
+    },
+    keywords: ["NextUi", "NextUi Theme", "NextUi Themes", "NextUi Theme generator"],
+    manifest: "/manifest.json"
 };
 
 
