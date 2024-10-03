@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/providers/Providers";
 import Navbar from "../components/Navbar"
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,8 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Script 
+        defer 
+        src="https://analytics.mortenra.com/script.js" 
+        data-website-id="52131f8d-59e2-4165-940f-123a53e698cb" 
+      />
       <body 
-      className={`overflow-auto ${inter.className}`}
+        className={`overflow-auto ${inter.className}`}
       >
         <Providers>
           <Navbar />
